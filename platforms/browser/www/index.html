@@ -36,14 +36,13 @@
     function preload ()
     {
 
-      /*
-         this is the default asset URL... 
-         do i remove it to use local? what project path?
+         // this is the default asset URL... 
+         // do i remove it to use local? what project path?
          this.load.setBaseURL('http://labs.phaser.io');
-        */
 
         this.load.image('sky', 'assets/skies/space3.png');
-        this.load.image('logo', 'assets/sprites/phaser3-logo-103px.png');
+        this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+        //this.load.image('logo', 'assets/sprites/phaser3-logo-103px.png');
         this.load.image('red', 'assets/particles/red.png');
     }
 
@@ -66,7 +65,8 @@
       });
 
       var logo = this.physics.add.image(0, 0, 'logo')
-        
+
+      /*
       logo.setInteractive({ draggable: true })
 
       logo.on('drag', function (pointer, dragX, dragY) {
@@ -75,6 +75,7 @@
         this.y = dragY;
 
       });
+      */
 
       /*
        how do i dynamically change the world gravity?
