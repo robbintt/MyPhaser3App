@@ -4,6 +4,8 @@
     <script src="lib/phaser.min.js"></script>
     <style>
       canvas, body {
+        /* in landscape mode it is clear the 
+           grey margins are from phonegap or something... */
         border: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -34,13 +36,15 @@
     function preload ()
     {
 
-        // this is the default asset URL... 
-        // do i remove it to use local? what project path?
-        //this.load.setBaseURL('http://labs.phaser.io');
+      /*
+         this is the default asset URL... 
+         do i remove it to use local? what project path?
+         this.load.setBaseURL('http://labs.phaser.io');
+        */
 
-        this.load.image('sky', '/assets/skies/space3.png');
-        this.load.image('logo', '/assets/sprites/phaser3-logo-103px.png');
-        this.load.image('red', '/assets/particles/red.png');
+        this.load.image('sky', 'assets/skies/space3.png');
+        this.load.image('logo', 'assets/sprites/phaser3-logo-103px.png');
+        this.load.image('red', 'assets/particles/red.png');
     }
 
     function create ()
@@ -59,26 +63,20 @@
           blendMode: 'ADD'
       });
 
-      var logo = this.physics.add.image(0, 0, 'logo') .setInteractive({ draggable: true })
-
-      //logo.scale.set(4);
+      var logo = this.physics.add.image(0, 0, 'logo').setInteractive({ draggable: true })
 
       logo.on('drag', function (pointer, dragX, dragY) {
 
         this.x = dragX;
         this.y = dragY;
 
-        // these did not seem to work
-        // this.setVelocity(0,0);
-        // this.setGravityY(0)
-
-
       });
 
-
-      // how do i dynamically change the world gravity?
-      // this did not seem to work
-      // this.physics.arcade.gravity.y = 200;
+      /*
+       how do i dynamically change the world gravity?
+       this did not seem to work
+       this.physics.arcade.gravity.y = 200;
+      */
 
       logo.setVelocity(0, 0);
       logo.setBounce(1, .6);
