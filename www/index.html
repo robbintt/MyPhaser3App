@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="lib/phaser.min.js"></script>
-    <style>
-      canvas, body {
-        /* in landscape mode it is clear the 
-           grey margins are from phonegap or something... */
-        border: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-    </style>
+  <!-- for ios 10 -->
+  <!-- from: https://blog.phonegap.com/displaying-a-phonegap-app-correctly-on-the-iphone-x-c4a85664c493 -->
+  <meta name=”viewport” content=”initial-scale=1, width=device-width, height=device-height, viewport-fit=cover”>
+  <script src="lib/phaser.min.js"></script>
+  <style>
+    canvas, body {
+      /* in landscape mode it is clear the 
+         grey margins are from phonegap or something... */
+      border: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  </style>
 </head>
 <body>
+  <script>
 
-    <script>
     var config = {
         type: Phaser.WEBGL,
         width: 375,
@@ -36,14 +39,17 @@
     function preload ()
     {
 
-         // this is the default asset URL... 
-         // do i remove it to use local? what project path?
-         // this.load.setBaseURL('http://labs.phaser.io');
+      // this is the default asset URL... 
+      // do i remove it to use local? what project path?
+      // cannot get phonegap to work without setbaseurl... why?
+      // maybe the phonegap asset path goes somewhere else?
+      this.load.setBaseURL('http://labs.phaser.io');
 
-        this.load.image('sky', 'assets/skies/space3.png');
-        this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-        //this.load.image('logo', 'assets/sprites/phaser3-logo-103px.png');
-        this.load.image('red', 'assets/particles/red.png');
+      this.load.image('sky', 'assets/skies/space3.png');
+      this.load.image('logo', 'assets/sprites/phaser-tiny.png');
+      // this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+      //this.load.image('logo', 'assets/sprites/phaser3-logo-103px.png');
+      this.load.image('red', 'assets/particles/red.png');
     }
 
     function create ()
@@ -90,7 +96,7 @@
       emitter.startFollow(logo);
 
     }
-    </script>
 
+  </script>
 </body>
 </html>
