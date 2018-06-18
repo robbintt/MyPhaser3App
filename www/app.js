@@ -7,8 +7,8 @@ document.addEventListener(startEvent,function() {
     
     var config = {
       type: Phaser.AUTO,
-      width: 800,
-      height: 600,
+      width: 375,
+      height: 812,
       scene: {
         preload: preload,
         create: create
@@ -25,7 +25,7 @@ document.addEventListener(startEvent,function() {
     // i got rid of the phaser2 dynamic sprite location etc.
     // i am sure i will eventually learn how to do that though
     function create () {
-        var logo = this.add.sprite(400, 300, 'logo');
+        var logo = this.add.sprite(100, 75, 'logo');
     }
 
 });
